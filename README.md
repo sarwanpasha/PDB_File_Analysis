@@ -11,6 +11,13 @@ It calls two python files, namely `PDB_Separate_File_Parsing.py` and `PDB_Single
 input_data_path = "Sample_Data/";
 file_name = "1wwf.ent.pdb";
 output_path = "Sample_Data/";
+```
+if you want single file including protein and aptamers, run this line and comment the next one
+```
+system("python PDB_Single_File_Parsing.py " + input_file_path + " " + input_file_name + " " + output_file_path);
+```
+if you want two separate files for protein and aptamers, run this line and comment the above one
+```
 system("python PDB_Separate_File_Parsing.py " + input_file_path + " " + input_file_name + " " + output_file_path);
 ```
 This matlab wrapper in `PDB_file_parsing_matlab_wrapper.m` will then write the new files in the output folder mentioned in the matlab script
