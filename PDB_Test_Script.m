@@ -1,7 +1,3 @@
-
-
-
-
 %%%%% Step 1 %%%%% 
 %%%%% Read raw pdb file and extract single file for each model
 raw_file = "/data/hummels/digitalSELEX-2/1wwf.ent.pdb"; %example pdb file
@@ -27,12 +23,6 @@ system(query_string_2);
 first_protein_file_model = 1;
 second_protein_file_model = 2;
 
-%variables for two separate protein-aptamer files for comparison
-separate_first_protein_file = output_file_path + "pdb_subset_Model_" + string(first_protein_file_model) + "_ter_1.pdb";
-separate_first_aptamer_file = output_file_path + "pdb_subset_Model_" + string(first_protein_file_model) + "_ter_2.pdb";
-separate_second_protein_file = output_file_path + "pdb_subset_Model_" + string(second_protein_file_model) + "_ter_1.pdb";
-separate_second_aptamer_file = output_file_path + "pdb_subset_Model_" + string(second_protein_file_model) + "_ter_2.pdb";
-
 %variables for two combined protein-aptamer files for comparison
 combines_first_protein_file = output_file_path + "pdb_complete_Model_" + string(first_protein_file_model) + ".pdb";
 combines_second_protein_file = output_file_path + "pdb_complete_Model_" + string(second_protein_file_model) + ".pdb";
@@ -42,13 +32,12 @@ ccfit_path = "/data/hummels/ITScorePR1.0/";
 flag = 'CCFIT'; %RMSD or CCFIT
 
 if isequal(flag,'RMSD')
-    disp("RMSD Setting")
-    [status,rmsd_result] = system("python calculate_rmsd.py " + combines_first_protein_file + " " + combines_second_protein_file);
+    disp("RMSD Results")
+    rmsd_result = Calculate_RMSD_Matlab_Wrapper(combines_first_protein_file,combines_second_protein_file);
     disp("RMSD Score is: " + rmsd_result);
 else
-    disp("CCFIT Setting")
-    [Lrmsd,Irmsd, Fnat, Accuracy] = CCFIT_Matlab_Wrapper(ccfit_path,separate_first_protein_file,separate_first_aptamer_file,...
-    separate_second_protein_file,separate_second_aptamer_file);
+    disp("CCFIT Results")
+    [Lrmsd,Irmsd, Fnat, Accuracy] = CCFIT_Matlab_Wrapper(ccfit_path,output_file_path,first_protein_file_model,second_protein_file_model);
     disp("Lrmsd: " + Lrmsd + ", Irmsd:" + Irmsd + ", Fnat: " + Fnat + ", Accuracy: " + Accuracy);
 end
 

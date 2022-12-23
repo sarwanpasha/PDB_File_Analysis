@@ -1,20 +1,25 @@
 
-function [Lrmsd,Irmsd, Fnat, Accuracy] = CCFIT_Matlab_Wrapper(ccfit_path,pr_1,rna_1,pr_2,rna_2)
+function [Lrmsd,Irmsd, Fnat, Accuracy] = CCFIT_Matlab_Wrapper(ccfit_path,output_file_path,pr_1,pr_2)
 
 % path = "/data/hummels/ITScorePR1.0/";
 % path = file_path;
 
+first_protein_file = output_file_path + "pdb_subset_Model_" + string(pr_1) + "_ter_1.pdb";
+first_rna_file = output_file_path + "pdb_subset_Model_" + string(pr_1) + "_ter_2.pdb";
+second_protein_file = output_file_path + "pdb_subset_Model_" + string(pr_2) + "_ter_1.pdb";
+second_rna_file = output_file_path + "pdb_subset_Model_" + string(pr_2) + "_ter_2.pdb";
+
 % first_protein_file = '1C0A_bprotein.pdb';
-first_protein_file = pr_1;
+% first_protein_file = pr_1;
 
 % first_rna_file = '1C0A_brna.pdb';
-first_rna_file = rna_1;
+% first_rna_file = rna_1;
 
 % second_protein_file = '1C0A_protein.pdb';
-second_protein_file = pr_2;
+% second_protein_file = pr_2;
 
 % second_rna_file = '1C0A_rna.pdb';
-second_rna_file = rna_2;
+% second_rna_file = rna_2;
 
 
 %Command to compile the ccfit fortran code

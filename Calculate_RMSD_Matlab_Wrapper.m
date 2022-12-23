@@ -1,9 +1,7 @@
-% clc;
+function [rmsd_result] = Calculate_RMSD_Matlab_Wrapper(combines_first_protein_file,combines_second_protein_file)
 
+[status,rmsd_result] = system("python calculate_rmsd.py " + combines_first_protein_file + " " + combines_second_protein_file);
 
-pdb_file_1 = "./pdbfiles/proteins/1r42.pdb";
-pdb_file_2 = "./pdbfiles/proteins/1r42.pdb";
+% disp("RMSD: " + rmsd_result);
 
-[status,rmsd_result] = system("python calculate_rmsd.py " + pdb_file_1 + " " + pdb_file_2);
-
-disp("RMSD: " + rmsd_result);
+end
