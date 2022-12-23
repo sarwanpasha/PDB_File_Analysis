@@ -1,3 +1,11 @@
+#Single Matlab Script
+To get the taste of all tasks, use the matlab script `PDB_Test_Script.m`.
+In that code, you need to change the path of input raw pdb file and the path to output file where the breaked pdb files will be stored.
+
+All the three steps defined below are included in this single script with comments for better understanding.
+
+In step 3, there is a flag to compute either RMSD or CCFIT score between pdb files.
+
 This repository performs 3 tasks.
 
 ## Break PDB File
