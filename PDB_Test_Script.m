@@ -26,13 +26,13 @@ combines_second_protein_file = output_file_path + "pdb_complete_Model_" + string
 
 ccfit_path = "/data/hummels/ITScorePR1.0/";
 
-flag = 'RMSD'; %RMSD or CCFIT
+flag = 'CCFIT'; %RMSD or CCFIT
 
 if isequal(flag,'RMSD')
     disp("RMSD Results")
     rmsd_result = Calculate_RMSD_Matlab_Wrapper(combines_first_protein_file,combines_second_protein_file);
     disp("RMSD Score is: " + rmsd_result);
-else
+elseif isequal(flag,'CCFIT')
     disp("CCFIT Results")
     [Lrmsd,Irmsd, Fnat, Accuracy] = CCFIT_Matlab_Wrapper(ccfit_path,output_file_path,first_protein_file_model,second_protein_file_model);
     disp("Lrmsd: " + Lrmsd + ", Irmsd:" + Irmsd + ", Fnat: " + Fnat + ", Accuracy: " + Accuracy);
