@@ -1,8 +1,8 @@
 import numpy as np
+import sys
 
-
-def PDB_Single_File_Parsing(input_data_path,file_name,output_path):
-    data_path = input_data_path
+def PDB_Single_File_Parsing(file_name,output_path):
+    #data_path = input_data_path
     input_file_name = file_name
     store_path = output_path
 
@@ -10,7 +10,7 @@ def PDB_Single_File_Parsing(input_data_path,file_name,output_path):
     types_arr = []
     store_all_atoms = []
     model_holder = 0
-    for line in open(data_path + input_file_name):
+    for line in open(input_file_name):
         # read line by line and split each row
         list = line.split()
         # get the first column
@@ -45,11 +45,9 @@ def PDB_Single_File_Parsing(input_data_path,file_name,output_path):
     print("Complete PDB files parsed")
 
 
-
-
-#input_data_path = "E:/RA/BC_Project/Data/"
-#file_name = "1wwf.ent.pdb"
-#output_path = "E:/RA/BC_Project/Data/stored/"
-
-#PDB_Separate_File_Parsing(input_data_path,file_name,output_path)
-
+if __name__ == '__main__':
+    
+    file_name = sys.argv[1]
+    output_path = sys.argv[2]
+    
+    PDB_Single_File_Parsing(file_name,output_path)

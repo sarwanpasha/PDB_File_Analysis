@@ -1,8 +1,8 @@
 
-function [Lrmsd,Irmsd, Fnat, Accuracy] = CCFIT_Matlab_Wrapper(ccfit_path,file_path,pr_1,rna_1,pr_2,rna_2)
+function [Lrmsd,Irmsd, Fnat, Accuracy] = CCFIT_Matlab_Wrapper(ccfit_path,pr_1,rna_1,pr_2,rna_2)
 
 % path = "/data/hummels/ITScorePR1.0/";
-path = file_path;
+% path = file_path;
 
 % first_protein_file = '1C0A_bprotein.pdb';
 first_protein_file = pr_1;
@@ -22,8 +22,8 @@ second_rna_file = rna_2;
 
 %command to execute ccfit and get the resultant numbers
 % string_command = path + 'ccfit ' + path + '1C0A_bprotein.pdb ' + path + '1C0A_brna.pdb ' + path + '1C0A_protein.pdb ' + path + '1C0A_rna.pdb';
-string_command = ccfit_path + 'ccfit ' + path + first_protein_file + ' ' + path + first_rna_file + ' ' + path + ...
-    second_protein_file + ' ' + path + second_rna_file;
+string_command = ccfit_path + 'ccfit ' + first_protein_file + ' ' + first_rna_file + ' ' + ...
+    second_protein_file + ' ' + second_rna_file;
 
 % disp("command check: " + string_command)
 % unix(string_command)
