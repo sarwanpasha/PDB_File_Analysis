@@ -1,4 +1,4 @@
-#Single Matlab Script
+# Single Matlab Script
 To get the taste of all tasks, use the matlab script `PDB_Test_Script.m`.
 In that code, you need to change the path of input raw pdb file and the path to output file where the breaked pdb files will be stored.
 
