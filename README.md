@@ -4,31 +4,24 @@ In that code, you need to change the path of input raw pdb file and the path to 
 
 All the three steps defined below are included in this single script with comments for better understanding.
 
-In step 3, there is a flag to compute either RMSD or CCFIT score between pdb files.
+## Step 1: Break PDB File into single protein-aptamer file
+To break the raw PDB file to get the proteins and aptamers combined in a single file, use the function
+```
+PDB_Single_File_Parsing.m
+```
+It takes two arguments as input `file_name`, `output_path`.
 
-This repository performs 3 tasks.
+## Step 2: Break PDB File into separate protein-aptamer file
+To break the raw PDB file to get the proteins and aptamers as separate files, use the function
+```
+PDB_Separate_File_Parsing.m
+```
+It takes two arguments as input `output_path` and `Model_number`.
 
-## Break PDB File
-To break the raw PDB file to get the proteins and aptamers, use the function
-```
-PDB_file_parsing_matlab_wrapper.m
-```
-It calls two python files, namely `PDB_Separate_File_Parsing.py` and `PDB_Single_File_Parsing.py` python script that takes takes three arguments as input `input_data_path`, `file_name`, `output_path`. For example:
+## Step 3: Compare pdb files
+In this step, we use a flag to compute either RMSD score using scripts `Calculate_RMSD_Matlab_Wrapper.m` and CCFIT score using `CCFIT_Matlab_Wrapper.m`
 
-```
-input_data_path = "Sample_Data/";
-file_name = "1wwf.ent.pdb";
-output_path = "Sample_Data/";
-```
-if you want single file including protein and aptamers, run this line
-```
-system("python PDB_Single_File_Parsing.py " + input_file_path + " " + input_file_name + " " + output_file_path);
-```
-if you want two separate files for protein and aptamers, run this line
-```
-system("python PDB_Separate_File_Parsing.py " + input_file_path + " " + input_file_name + " " + output_file_path);
-```
-This matlab wrapper in `PDB_file_parsing_matlab_wrapper.m` will then write the new files in the output folder mentioned in the matlab script
+The detail for other functions is described below.
 
 ## Comparison Using CCFIT
 To compare two pdb files and their respective aptamers, use `CCFIT_Matlab_Wrapper.m` function. It takes the input file path, first protein file name, its aptamer file name, second protein file name, and its aptamer file name as input. An example matlab script regarding how to run it is given in `ccfit_function_check.m` code. It works as follows:
