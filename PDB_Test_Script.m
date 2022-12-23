@@ -2,18 +2,14 @@
 %%%%% Read raw pdb file and extract single file for each model
 raw_file = "/data/hummels/digitalSELEX-2/1wwf.ent.pdb"; %example pdb file
 output_file_path = "/data/hummels/digitalSELEX-2/PDB_Output_files/";
-query_string = "python PDB_Single_File_Parsing.py " + raw_file + " " + output_file_path;
-system(query_string);
+PDB_Single_File_Parsing(raw_file,output_file_path);
 
 %%
 %%%%% Step 2 %%%%% 
 %%%%% Now, we will read one of those pdb files from a single model and
 %%%%% break them into protein and aptamer files
-Model_Number = 2; % need to mention the model number that we want to parse
-
-single_pdb_file_name = output_file_path + "pdb_complete_Model_" + string(Model_Number) + ".pdb";
-query_string_2 = "python PDB_Separate_File_Parsing.py " + single_pdb_file_name + " " + output_file_path + " " + Model_Number;
-system(query_string_2);
+Model_Number = 1; % need to mention the model number that we want to parse
+PDB_Separate_File_Parsing(output_file_path,Model_Number);
 
 %%
 %%%%% Step 3 %%%%% 
