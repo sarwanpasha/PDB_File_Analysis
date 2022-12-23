@@ -16,9 +16,9 @@ system("python PDB_Separate_File_Parsing.py " + input_file_path + " " + input_fi
 This matlab wrapper in `PDB_file_parsing_matlab_wrapper.m` will then write the new files in the output folder mentioned in the matlab script
 
 ## Comparison Using CCFIT
-To compare two pdb files and their respective aptamers, use `CCFIT_Matlab_Wrapper.m` function. It takes the input file path, first protein file name, its aptamer file name, second protein file name, and its aptamer file name as input. For example:
+To compare two pdb files and their respective aptamers, use `CCFIT_Matlab_Wrapper.m` function. It takes the input file path, first protein file name, its aptamer file name, second protein file name, and its aptamer file name as input. An example matlab script regarding how to run it is given in `ccfit_function_check.m` code. It works as follows:
 ```
-path = "./Data/"
+path = "Sample_Data/"
 ccfit_path = "CCFIT_Compileable/";
 first_protein_file = '1C0A_bprotein.pdb';
 first_rna_file = '1C0A_brna.pdb';
