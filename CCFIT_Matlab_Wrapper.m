@@ -3,6 +3,8 @@ function [Lrmsd,Irmsd, Fnat, Accuracy] = CCFIT_Matlab_Wrapper(ccfit_path,output_
 
 % path = "/data/hummels/ITScorePR1.0/";
 % path = file_path;
+PDB_Separate_File_Parsing(output_file_path,pr_1);
+PDB_Separate_File_Parsing(output_file_path,pr_2);
 
 first_protein_file = output_file_path + "pdb_subset_Model_" + string(pr_1) + "_ter_1.pdb";
 first_rna_file = output_file_path + "pdb_subset_Model_" + string(pr_1) + "_ter_2.pdb";
